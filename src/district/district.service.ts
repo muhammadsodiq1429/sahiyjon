@@ -21,6 +21,8 @@ export class DistrictService {
 
     if (allDistrict.length === 0)
       throw new NotFoundException("District not found");
+
+    return allDistrict
   }
   async findOne(id: number) {
     const district = await this.districtModel.findByPk(id, {

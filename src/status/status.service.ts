@@ -24,6 +24,8 @@ export class StatusService {
     });
 
     if (allStatus.length === 0) throw new NotFoundException("Status not found");
+
+    return allStatus;
   }
 
   async findOne(id: number) {

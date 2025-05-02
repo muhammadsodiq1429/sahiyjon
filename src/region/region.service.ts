@@ -24,6 +24,8 @@ export class RegionService {
     });
 
     if (allRegion.length === 0) throw new NotFoundException("Region not found");
+
+    return allRegion;
   }
 
   async findOne(id: number) {

@@ -19,6 +19,8 @@ export class StoreService {
     });
 
     if (allStore.length === 0) throw new NotFoundException("Store not found");
+
+    return allStore;
   }
 
   async findOne(id: number) {

@@ -10,6 +10,14 @@ import { Admin } from "./admins/models/admin.model";
 import { BotModule } from "./bot/bot.module";
 import { TelegrafModule } from "nestjs-telegraf";
 import { BOT_NAME } from "./app.const";
+import { RegionModule } from "./region/region.module";
+import { DistrictModule } from "./district/district.module";
+import { StatusModule } from "./status/status.module";
+import { StoreModule } from "./store/store.module";
+import { Region } from "./region/models/region.model";
+import { District } from "./district/models/district.model";
+import { Status } from "./status/models/status.model";
+import { Store } from "./store/models/store.model";
 
 @Module({
   imports: [
@@ -29,7 +37,7 @@ import { BOT_NAME } from "./app.const";
       username: process.env.PG_USER,
       password: process.env.PG_PASSWORD,
       database: process.env.PG_DB,
-      models: [User, Admin],
+      models: [User, Admin, Region, District, Status, Store],
       autoLoadModels: true,
       sync: { alter: true },
       logging: false,
@@ -39,8 +47,14 @@ import { BOT_NAME } from "./app.const";
     MailModule,
     AdminsModule,
     BotModule,
+    RegionModule,
+    DistrictModule,
+    StatusModule,
+    StoreModule,
   ],
   controllers: [],
   providers: [],
 })
 export class AppModule {}
+
+// Region, district, status va store

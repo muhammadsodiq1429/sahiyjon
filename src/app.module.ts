@@ -18,6 +18,15 @@ import { Region } from "./region/models/region.model";
 import { District } from "./district/models/district.model";
 import { Status } from "./status/models/status.model";
 import { Store } from "./store/models/store.model";
+import { SocialMediaTypeModule } from "./social_media_type/social_media_type.module";
+import { StoreSocialLinksModule } from "./store_social_links/store_social_links.module";
+import { TypeModule } from "./type/type.module";
+import { CategoryModule } from "./category/category.module";
+import { DiscountModule } from "./discount/discount.module";
+import { SocialMediaType } from "./social_media_type/models/social_media_type.model";
+import { StoreSocialLink } from "./store_social_links/models/store_social_link.model";
+import { Type } from "./type/models/type.model";
+import { Category } from "./category/models/category.model";
 
 @Module({
   imports: [
@@ -51,10 +60,17 @@ import { Store } from "./store/models/store.model";
     DistrictModule,
     StatusModule,
     StoreModule,
+    SocialMediaTypeModule,
+    StoreSocialLinksModule,
+    TypeModule,
+    CategoryModule,
+    DiscountModule,
+    SocialMediaType,
+    StoreSocialLink,
+    Type,
+    Category,
   ],
   controllers: [],
   providers: [],
 })
 export class AppModule {}
-
-// Region, district, status va store

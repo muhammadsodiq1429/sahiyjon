@@ -27,6 +27,7 @@ import { SocialMediaType } from "./social_media_type/models/social_media_type.mo
 import { StoreSocialLink } from "./store_social_links/models/store_social_link.model";
 import { Type } from "./type/models/type.model";
 import { Category } from "./category/models/category.model";
+import { Discount } from "./discount/models/discount.model";
 
 @Module({
   imports: [
@@ -69,6 +70,7 @@ import { Category } from "./category/models/category.model";
     StoreSocialLink,
     Type,
     Category,
+    Discount,
   ],
   controllers: [],
   providers: [],

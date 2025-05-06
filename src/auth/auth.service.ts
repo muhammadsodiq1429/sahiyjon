@@ -100,7 +100,7 @@ export class AuthService {
 
     const user = await this.usersService.findOne(id);
 
-    console.log(user.hashed_refresh_token);
+
     if (!user.hashed_refresh_token)
       throw new NotFoundException("User not found");
 

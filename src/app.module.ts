@@ -28,6 +28,19 @@ import { StoreSocialLink } from "./store_social_links/models/store_social_link.m
 import { Type } from "./type/models/type.model";
 import { Category } from "./category/models/category.model";
 import { Discount } from "./discount/models/discount.model";
+import { Bot } from "./bot/model/bot.model";
+import { AdsModule } from "./ads/ads.module";
+import { ReviewsModule } from "./reviews/reviews.module";
+import { FavouritesModule } from "./favourites/favourites.module";
+import { StoreSubscribesModule } from "./store_subscribes/store_subscribes.module";
+import { MediaModule } from "./media/media.module";
+import { Ad } from "./ads/models/ad.model";
+import { Review } from "./reviews/models/review.model";
+import { Favourite } from "./favourites/models/favourite.model";
+import { StoreSubscribe } from "./store_subscribes/models/store_subscribe.model";
+import { Media } from "./media/models/media.model";
+import { Otp } from "./users/models/otp.model";
+import { Address } from "./bot/model/address.model";
 
 @Module({
   imports: [
@@ -47,7 +60,25 @@ import { Discount } from "./discount/models/discount.model";
       username: process.env.PG_USER,
       password: process.env.PG_PASSWORD,
       database: process.env.PG_DB,
-      models: [User, Admin, Region, District, Status, Store],
+      models: [
+        User,
+        Admin,
+        Region,
+        District,
+        Status,
+        Store,
+        Type,
+        Category,
+        Discount,
+        Bot,
+        Ad,
+        Review,
+        Favourite,
+        StoreSubscribe,
+        Media,
+        Otp,
+        Address,
+      ],
       autoLoadModels: true,
       sync: { alter: true },
       logging: false,
@@ -68,9 +99,11 @@ import { Discount } from "./discount/models/discount.model";
     DiscountModule,
     SocialMediaType,
     StoreSocialLink,
-    Type,
-    Category,
-    Discount,
+    AdsModule,
+    ReviewsModule,
+    FavouritesModule,
+    StoreSubscribesModule,
+    MediaModule,
   ],
   controllers: [],
   providers: [],

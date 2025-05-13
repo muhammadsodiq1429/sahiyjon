@@ -12,8 +12,6 @@ import { AuthService } from "./auth.service";
 import { SignInUserDto } from "./dto/sign-in-user.dto";
 import { Response } from "express";
 import { CookieGetter } from "../common/decorators/cookie-getter.decorator";
-import { Admin } from "../admins/models/admin.model";
-import { User } from "../users/models/user.model";
 import { CreateUserDto } from "../users/dto/create-user.dto";
 
 @Controller("auth")

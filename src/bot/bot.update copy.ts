@@ -164,7 +164,7 @@ export class BotUpdate {
   //     [Markup.button.contactRequest("Telefon raqamni yuboring")],
   //   ];
   //   await ctx.reply("Kerakli Main Buttonni tanlang:", {
-  //     ...Markup.keyboard(mainKeyBoard).resize(),
+  //     ...Markup.keyboard(mainKeyBoard).resize(true),
   //   });
   // }
 

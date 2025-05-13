@@ -94,7 +94,7 @@ export class UsersService {
   }
 
   async activateUser(link: string) {
-    if (!link) throw new BadRequestException("Activate lik not found");
+    if (!link) throw new BadRequestException("Activate link not found");
     const updatedUser = await this.userModel.update(
       { is_active: true },
       {

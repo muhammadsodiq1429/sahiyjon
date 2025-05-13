@@ -11,7 +11,6 @@ import { HandlebarsAdapter } from "@nestjs-modules/mailer/dist/adapters/handleba
       useFactory: async (config: ConfigService) => ({
         transport: {
           host: config.get<string>("SMTP_HOST"),
-          // port: config.get<string>("SMTP_PORT"),
           secure: false,
           auth: {
             user: config.get<string>("SMTP_USER"),

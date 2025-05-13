@@ -65,12 +65,12 @@ export class AuthService {
       throw new BadRequestException("Email or password incorrect");
 
     const { accessToken, refreshToken } = await this.generateTokens(user);
-    res.cookie("refresh_token", refreshToken, {
-      httpOnly: true,
-      maxAge: Number(process.env.COOKIE_REFRESH_TOKEN_TIME),
-    });
     await user.update({
       hashed_refresh_token: await bcrypt.hash(refreshToken, 7),
+    });
+    res.cookie("refresh_token", refreshToken, {
+      maxAge: Number(process.env.COOKIE_REFRESH_TOKEN_TIME),
+      httpOnly: true,
     });
 
     return {
@@ -95,11 +95,9 @@ export class AuthService {
   async refreshUser(id: number, refresh_token: string, res: Response) {
     const decodeToken = await this.jwtService.decode(refresh_token);
 
-    if (id !== decodeToken["id"])
-      throw new ForbiddenException("Ruxsat etilmagan");
+    if (id !== decodeToken["id"]) throw new ForbiddenException("Forbidden");
 
     const user = await this.usersService.findOne(id);
-
 
     if (!user.hashed_refresh_token)
       throw new NotFoundException("User not found");
@@ -112,11 +110,9 @@ export class AuthService {
     if (!tokenMatch) throw new ForbiddenException("Forbidden");
 
     const { accessToken, refreshToken } = await this.generateTokens(user);
-
     await user.update({
       hashed_refresh_token: await bcrypt.hash(refreshToken, 7),
     });
-
     res.cookie("refresh_token", refreshToken, {
       maxAge: Number(process.env.COOKIE_REFRESH_TOKEN_TIME),
       httpOnly: true,

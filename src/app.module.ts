@@ -1,8 +1,7 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { UsersModule } from "./users/users.module";
-import { User } from "./users/models/user.model";
+
 import { AuthModule } from "./auth/auth.module";
 import { MailModule } from "./mail/mail.module";
 import { AdminsModule } from "./admins/admins.module";
@@ -41,6 +40,9 @@ import { StoreSubscribe } from "./store_subscribes/models/store_subscribe.model"
 import { Media } from "./media/models/media.model";
 import { Otp } from "./users/models/otp.model";
 import { Address } from "./bot/model/address.model";
+import { SmsModule } from "./sms/sms.module";
+import { User } from "./users/models/user.model";
+import { UsersModule } from "./users/users.module";
 
 @Module({
   imports: [
@@ -104,6 +106,7 @@ import { Address } from "./bot/model/address.model";
     FavouritesModule,
     StoreSubscribesModule,
     MediaModule,
+    SmsModule,
   ],
   controllers: [],
   providers: [],

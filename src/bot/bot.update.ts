@@ -1,12 +1,4 @@
-import {
-  Action,
-  Command,
-  Ctx,
-  Hears,
-  On,
-  Start,
-  Update,
-} from "nestjs-telegraf";
+import { Command, Ctx, On, Start, Update } from "nestjs-telegraf";
 import { Context, Markup } from "telegraf";
 import { BotService } from "./bot.service";
 
@@ -18,6 +10,11 @@ export class BotUpdate {
     // console.log(ctx);
     // console.log(ctx.from);
     return this.botService.start(ctx);
+  }
+
+  @Command("admin")
+  async onAdminCommand(@Ctx() ctx: Context) {
+    await this.botService.admin_menu(ctx, `Xush kelibsiz, ADMIN`);
   }
 
   @On("contact")

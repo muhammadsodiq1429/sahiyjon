@@ -6,9 +6,15 @@ import { User } from "./models/user.model";
 import { MailModule } from "../mail/mail.module";
 import { BotModule } from "../bot/bot.module";
 import { Otp } from "./models/otp.model";
+import { SmsModule } from "../sms/sms.module";
 
 @Module({
-  imports: [SequelizeModule.forFeature([User, Otp]), MailModule, BotModule],
+  imports: [
+    SequelizeModule.forFeature([User, Otp]),
+    MailModule,
+    BotModule,
+    SmsModule,
+  ],
   controllers: [UsersController],
   providers: [UsersService],
   exports: [UsersService],

@@ -16,6 +16,7 @@ export class MailService {
       context: {
         name: user.name,
         url,
+        year: new Date().getFullYear(),
       },
     });
   }

@@ -18,6 +18,7 @@ import { Otp } from "./models/otp.model";
 import { AddMinutesToDate } from "../common/helpers/addMinutes";
 import { decode, encode } from "../common/helpers/crypto";
 import { VerifyOtpDto } from "./dto/verify-otp.dto";
+import { SmsService } from "../sms/sms.service";
 
 @Injectable()
 export class UsersService {
@@ -25,6 +26,7 @@ export class UsersService {
     @InjectModel(User) private readonly userModel: typeof User,
     @InjectModel(Otp) private readonly otpModel: typeof Otp,
     private readonly mailService: MailService,
+    private readonly smsService: SmsService,
     private readonly botService: BotService
   ) {}
 
@@ -128,7 +130,10 @@ export class UsersService {
       throw new BadRequestException("Avval botdan ro'yxatdan o'ting");
     }
     // return { message: "OTP botga yuborildi" };
+
     //______________________SMS__________________________
+    const response = await this.smsService.sendSms(phone_number, otp);
+
     //______________________EMAIL________________________
 
     const now = new Date();

@@ -99,47 +99,47 @@ export class BotUpdate {
   //   await ctx.reply("yo'q");
   // }
 
-  // @Command("inline")
-  // async onCommandInline(@Ctx() ctx: Context) {
-  //   const inlineKey = [
-  //     [
-  //       {
-  //         text: "Button 1",
-  //         callback_data: "button_1",
-  //       },
-  //       {
-  //         text: "Button 2",
-  //         callback_data: "button_2",
-  //       },
-  //       {
-  //         text: "Button 3",
-  //         callback_data: "button_3",
-  //       },
-  //     ],
-  //     [
-  //       {
-  //         text: "Button 4",
-  //         callback_data: "button_4",
-  //       },
-  //       {
-  //         text: "Button 5",
-  //         callback_data: "button_5",
-  //       },
-  //     ],
-  //     [
-  //       {
-  //         text: "Button 6",
-  //         callback_data: "button_6",
-  //       },
-  //     ],
-  //   ];
+  @Command("inline")
+  async onCommandInline(@Ctx() ctx: Context) {
+    const inlineKey = [
+      [
+        {
+          text: "Button 1",
+          callback_data: "button_1",
+        },
+        {
+          text: "Button 2",
+          callback_data: "button_2",
+        },
+        {
+          text: "Button 3",
+          callback_data: "button_3",
+        },
+      ],
+      [
+        {
+          text: "Button 4",
+          callback_data: "button_4",
+        },
+        {
+          text: "Button 5",
+          callback_data: "button_5",
+        },
+      ],
+      [
+        {
+          text: "Button 6",
+          callback_data: "button_6",
+        },
+      ],
+    ];
 
-  //   await ctx.reply("Kerakli tugmani tanlang:", {
-  //     reply_markup: {
-  //       inline_keyboard: inlineKey,
-  //     },
-  //   });
-  // }
+    await ctx.reply("Kerakli tugmani tanlang:", {
+      reply_markup: {
+        inline_keyboard: inlineKey,
+      },
+    });
+  }
 
   // @Action("button_1")
   // async onActionButton1(@Ctx() ctx: Context) {

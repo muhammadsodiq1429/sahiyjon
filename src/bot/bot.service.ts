@@ -36,7 +36,7 @@ export class BotService {
               [Markup.button.contactRequest("Telefon raqamni yuborish")],
             ])
               .oneTime()
-              .resize(true),
+              .resize(),
           }
         );
       } else if (!user.status || !user.phone_number) {
@@ -47,7 +47,7 @@ export class BotService {
               [Markup.button.contactRequest("Telefon raqamni yuborish")],
             ])
               .oneTime()
-              .resize(true),
+              .resize(),
           }
         );
       } else {
@@ -167,7 +167,7 @@ export class BotService {
             },
             order: [["id", "DESC"]],
           });
-          if (address) {            
+          if (address) {
             const userInput = ctx.message.text;
             switch (address.last_state) {
               case "name":
@@ -192,8 +192,6 @@ export class BotService {
                 break;
             }
           }
-
-          
         }
         // await ctx.replyWithHTML(`Shu yerga keldik`);
       } catch (error) {
@@ -239,6 +237,19 @@ export class BotService {
       }
     } catch (error) {
       console.log("Error on Location:", error);
+    }
+  }
+
+  async admin_menu(ctx: Context, menu_text: string = `<b>Admin menyusi</b>`) {
+    try {
+      await ctx.reply(menu_text, {
+        parse_mode: "HTML",
+        ...Markup.keyboard([["ADMIN", "NIMDA"]])
+          .oneTime()
+          .resize(),
+      });
+    } catch (error) {
+      console.log("on admin menu", error);
     }
   }
 }
